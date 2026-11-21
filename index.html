@@ -11,13 +11,46 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(to bottom, #ffffff, #e6ccff);
     color: #333;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* PASSWORD SCREEN */
+#lockScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #f3e6ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #b366ff;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* MAIN CONTENT */
+#mainContent {
+    display: none;
 }
 
 header {
     text-align: center;
-    padding: 80px 20px;
-    background: rgba(255,255,255,0.6);
+    padding: 60px 20px;
 }
 
 header h1 {
@@ -26,20 +59,20 @@ header h1 {
 }
 
 section {
-    padding: 50px 20px;
+    padding: 40px 20px;
     max-width: 900px;
     margin: auto;
 }
 
-.timeline {
-    border-left: 3px solid #b366ff;
-    padding-left: 20px;
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.timeline div {
-    margin-bottom: 30px;
-}
-
+/* GALLERY */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -51,61 +84,69 @@ section {
     border-radius: 15px;
 }
 
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* FLOATING HEARTS */
+.heart {
+    position: fixed;
+    bottom: 0;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
 }
 
-button {
-    padding: 10px 20px;
-    border: none;
-    background: #b366ff;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
 }
 
+/* COUNTDOWN */
+#countdown {
+    font-size: 1.5em;
+    text-align: center;
+    color: #b366ff;
+}
+
+/* SURPRISE */
 .hidden {
     display: none;
-}
-
-footer {
-    text-align: center;
-    padding: 30px;
-    font-size: 14px;
 }
 </style>
 
 </head>
 <body>
 
+<!-- PASSWORD LOCK -->
+<div id="lockScreen">
+    <h2>Enter Password 💖</h2>
+    <input type="password" id="password" placeholder="Enter special date">
+    <button onclick="unlock()">Open</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent">
+
 <header>
     <h1>Happy Birthday My Love ❤️</h1>
-    <p>You are the most beautiful part of my life 💗</p>
+    <p id="typing"></p>
 </header>
 
 <section>
-    <h2>Our Beautiful Journey 💕</h2>
-    <div class="timeline">
-        <div><b>1st Meet – Feb 14 (BTM Park)</b><br>Our journey started with the most special day ❤️</div>
-        <div><b>2nd Meet – Feb 20 (Cubbon Park)</b><br>Every moment with you felt magical 💫</div>
-        <div><b>3rd Meet – March 4 (Cubbon Park)</b></div>
-        <div><b>4th Meet – March 7 (HSR & Kanakadasa)</b></div>
-        <div><b>5th Meet – March 20 (Lal Bagh)</b><br>
-        Our picnic day 🥺❤️ You cooked red sauce pasta and fed me with your cute hands… it was the best thing ever 🤭</div>
-        <div><b>6th Meet – April 14 (Lal Bagh)</b><br>
-        We cuddled so much… being in your arms felt like home 💗</div>
-        <div><b>7th Meet – April 20 (Lal Bagh)</b></div>
-    </div>
+    <h2>Countdown to Your Special Day ⏳</h2>
+    <div id="countdown"></div>
+</section>
+
+<section>
+    <h2>Our Journey 💕</h2>
+    <div class="card">1st Meet – Feb 14 (BTM Park) ❤️</div>
+    <div class="card">2nd Meet – Cubbon Park 💫</div>
+    <div class="card">3rd Meet – Cubbon Park</div>
+    <div class="card">4th Meet – HSR & Kanakadasa</div>
+    <div class="card">5th Meet – Lal Bagh 🌸 (Pasta picnic 🤭❤️)</div>
+    <div class="card">6th Meet – Lal Bagh 💗 (Cuddles 🫠)</div>
+    <div class="card">7th Meet – Lal Bagh</div>
 </section>
 
 <section>
     <h2>Our Memories 📸</h2>
     <div class="gallery">
-        <!-- Replace with your images -->
         <img src="img1.jpg">
         <img src="img2.jpg">
         <img src="img3.jpg">
@@ -115,29 +156,17 @@ footer {
 
 <section>
     <h2>About You 💖</h2>
-    <div class="card">🍛 Favorite Food: Biryani</div>
-    <div class="card">🤍 Favorite Color: White & Lavender</div>
-    <div class="card">🌷 Favorite Flower: Tulip</div>
-    <div class="card">🦢 Favorite Bird: Swan</div>
+    <div class="card">🍛 Biryani Lover</div>
+    <div class="card">🤍 White & Lavender</div>
+    <div class="card">🌷 Tulips</div>
+    <div class="card">🦢 Swan</div>
 </section>
 
 <section>
     <h2>Love Messages 💌</h2>
-    <div class="card">You are not just my girlfriend, you are my peace, my happiness, and my everything ❤️</div>
-    <div class="card">Every moment with you becomes a memory I never want to forget 💫</div>
-    <div class="card">I promise to always stand beside you, love you, and make you smile 🫶🏻</div>
-    <div class="card">You make my world brighter just by being in it 💗</div>
-</section>
-
-<section>
-    <h2>Special Birthday Wish 🎂</h2>
-    <p>
-        Happy Birthday my love ❤️  
-        I don’t have perfect words, but I have real feelings.  
-        You are the best thing that has ever happened to me.  
-        Thank you for being in my life, for loving me, and for making every day special.  
-        I wish to spend many more birthdays with you, holding your hand forever 💗  
-    </p>
+    <div class="card">You are my peace, my happiness, my everything ❤️</div>
+    <div class="card">Every second with you feels magical 💫</div>
+    <div class="card">I want forever with you 🫶🏻</div>
 </section>
 
 <section style="text-align:center;">
@@ -145,14 +174,80 @@ footer {
     <p id="surprise" class="hidden">I Love You Forever ❤️🫶🏻</p>
 </section>
 
-<footer>
-    Made with ❤️ just for you
-</footer>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleMusic()" style="position:fixed; bottom:20px; right:20px;">🎵</button>
 
 <script>
+/* PASSWORD */
+function unlock() {
+    let pass = document.getElementById("password").value;
+    if(pass === "1402") { // You can change this
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+    } else {
+        alert("Wrong password 😢");
+    }
+}
+
+/* TYPING EFFECT */
+let text = "You are the most beautiful part of my life 💗";
+let i = 0;
+function typing() {
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+    }
+}
+typing();
+
+/* COUNTDOWN */
+let countDate = new Date("June 11, 2026 00:00:00").getTime();
+setInterval(function() {
+    let now = new Date().getTime();
+    let gap = countDate - now;
+
+    let d = Math.floor(gap / (1000*60*60*24));
+    let h = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
+    let m = Math.floor((gap % (1000*60*60)) / (1000*60));
+
+    document.getElementById("countdown").innerHTML =
+    d + " days " + h + " hours " + m + " mins";
+}, 1000);
+
+/* SURPRISE */
 function showSurprise() {
     document.getElementById("surprise").classList.remove("hidden");
 }
+
+/* MUSIC */
+function toggleMusic(){
+    let music = document.getElementById("music");
+    if(music.paused){
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+
+/* HEART ANIMATION */
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💜";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 500);
 </script>
 
 </body>
