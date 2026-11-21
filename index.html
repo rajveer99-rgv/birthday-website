@@ -3,251 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday My Love ❤️</title>
+<title>For You ❤️</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to bottom, #ffffff, #e6ccff);
-    color: #333;
-    overflow-x: hidden;
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#faf7ff;
 }
 
-/* PASSWORD SCREEN */
-#lockScreen {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #f3e6ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+/* INTRO */
+#intro{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:black;
+color:white;
 }
 
-input {
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 10px;
+/* MAIN */
+#app{display:none;padding-bottom:70px}
+
+/* NAV BAR */
+nav{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+background:white;
+padding:10px;
+box-shadow:0 -2px 10px rgba(0,0,0,0.1);
 }
 
-button {
-    padding: 10px 20px;
-    border: none;
-    background: #b366ff;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
+nav button{
+background:none;
+border:none;
+font-size:18px;
 }
 
-/* MAIN CONTENT */
-#mainContent {
-    display: none;
+/* PAGES */
+.page{display:none;padding:20px}
+.active{display:block}
+
+/* CARD */
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
-header {
-    text-align: center;
-    padding: 60px 20px;
+/* CHAT */
+.msg{
+padding:10px;
+border-radius:10px;
+margin:5px;
+max-width:70%;
 }
-
-header h1 {
-    font-size: 3em;
-    color: #b366ff;
-}
-
-section {
-    padding: 40px 20px;
-    max-width: 900px;
-    margin: auto;
-}
-
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+.left{background:#eee}
+.right{background:#d9b3ff;margin-left:auto}
 
 /* GALLERY */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
+.gallery{
+display:flex;
+overflow-x:scroll;
+}
+.gallery img{
+width:80%;
+margin-right:10px;
+border-radius:15px;
 }
 
-.gallery img {
-    width: 100%;
-    border-radius: 15px;
+/* FINAL SCREEN */
+#finalScreen{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+color:white;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:10;
 }
 
-/* FLOATING HEARTS */
-.heart {
-    position: fixed;
-    bottom: 0;
-    font-size: 20px;
-    animation: floatUp 6s linear infinite;
+/* HEARTS */
+.heart{
+position:fixed;
+bottom:0;
+animation:up 6s linear infinite;
 }
-
-@keyframes floatUp {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-100vh); opacity: 0; }
-}
-
-/* COUNTDOWN */
-#countdown {
-    font-size: 1.5em;
-    text-align: center;
-    color: #b366ff;
-}
-
-/* SURPRISE */
-.hidden {
-    display: none;
+@keyframes up{
+to{transform:translateY(-100vh);opacity:0}
 }
 </style>
-
 </head>
+
 <body>
 
-<!-- PASSWORD LOCK -->
-<div id="lockScreen">
-    <h2>Enter Password 💖</h2>
-    <input type="password" id="password" placeholder="Enter special date">
-    <button onclick="unlock()">Open</button>
+<!-- INTRO -->
+<div id="intro">
+<h1>For Someone Special ❤️</h1>
+<button onclick="enter()">Tap to Enter</button>
 </div>
 
-<!-- MAIN CONTENT -->
-<div id="mainContent">
+<!-- APP -->
+<div id="app">
 
-<header>
-    <h1>Happy Birthday My Love ❤️</h1>
-    <p id="typing"></p>
-</header>
+<!-- HOME -->
+<div id="home" class="page active">
+<div class="card">
+<h2>Happy Birthday ❤️</h2>
+<p id="typing"></p>
+</div>
+</div>
 
-<section>
-    <h2>Countdown to Your Special Day ⏳</h2>
-    <div id="countdown"></div>
-</section>
+<!-- CHAT -->
+<div id="chat" class="page">
+<div class="card" id="chatBox"></div>
+</div>
 
-<section>
-    <h2>Our Journey 💕</h2>
-    <div class="card">1st Meet – Feb 14 (BTM Park) ❤️</div>
-    <div class="card">2nd Meet – Cubbon Park 💫</div>
-    <div class="card">3rd Meet – Cubbon Park</div>
-    <div class="card">4th Meet – HSR & Kanakadasa</div>
-    <div class="card">5th Meet – Lal Bagh 🌸 (Pasta picnic 🤭❤️)</div>
-    <div class="card">6th Meet – Lal Bagh 💗 (Cuddles 🫠)</div>
-    <div class="card">7th Meet – Lal Bagh</div>
-</section>
+<!-- GALLERY -->
+<div id="gallery" class="page">
+<div class="gallery">
+<img src="img1.jpg">
+<img src="img2.jpg">
+<img src="img3.jpg">
+</div>
+</div>
 
-<section>
-    <h2>Our Memories 📸</h2>
-    <div class="gallery">
-        <img src="img1.jpg">
-        <img src="img2.jpg">
-        <img src="img3.jpg">
-        <img src="img4.jpg">
-    </div>
-</section>
+<!-- LETTER -->
+<div id="letter" class="page">
+<div class="card">
+<p>
+You came into my life and changed everything...  
+You are my peace, my happiness, my home ❤️  
+I still remember every moment, every hug...  
+And I promise… this is just the beginning of forever 🫶🏻  
+</p>
+</div>
+</div>
 
-<section>
-    <h2>About You 💖</h2>
-    <div class="card">🍛 Biryani Lover</div>
-    <div class="card">🤍 White & Lavender</div>
-    <div class="card">🌷 Tulips</div>
-    <div class="card">🦢 Swan</div>
-</section>
+<!-- NAV -->
+<nav>
+<button onclick="show('home')">🏠</button>
+<button onclick="show('chat')">💬</button>
+<button onclick="show('gallery')">📸</button>
+<button onclick="show('letter')">💌</button>
+<button onclick="final()">🎁</button>
+</nav>
 
-<section>
-    <h2>Love Messages 💌</h2>
-    <div class="card">You are my peace, my happiness, my everything ❤️</div>
-    <div class="card">Every second with you feels magical 💫</div>
-    <div class="card">I want forever with you 🫶🏻</div>
-</section>
+</div>
 
-<section style="text-align:center;">
-    <button onclick="showSurprise()">Click for Surprise 🎁</button>
-    <p id="surprise" class="hidden">I Love You Forever ❤️🫶🏻</p>
-</section>
-
+<!-- FINAL -->
+<div id="finalScreen">
+<h1>I LOVE YOU ❤️</h1>
+<p>Forever and Always 🫶🏻</p>
 </div>
 
 <!-- MUSIC -->
 <audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
+<source src="music.mp3">
 </audio>
 
-<button onclick="toggleMusic()" style="position:fixed; bottom:20px; right:20px;">🎵</button>
-
 <script>
-/* PASSWORD */
-function unlock() {
-    let pass = document.getElementById("password").value;
-    if(pass === "1402") { // You can change this
-        document.getElementById("lockScreen").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-    } else {
-        alert("Wrong password 😢");
-    }
+
+/* ENTER */
+function enter(){
+intro.style.display="none";
+app.style.display="block";
+music.play();
+type();
+chatFlow();
 }
 
-/* TYPING EFFECT */
-let text = "You are the most beautiful part of my life 💗";
-let i = 0;
-function typing() {
-    if(i < text.length){
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typing, 50);
-    }
-}
-typing();
-
-/* COUNTDOWN */
-let countDate = new Date("June 11, 2026 00:00:00").getTime();
-setInterval(function() {
-    let now = new Date().getTime();
-    let gap = countDate - now;
-
-    let d = Math.floor(gap / (1000*60*60*24));
-    let h = Math.floor((gap % (1000*60*60*24)) / (1000*60*60));
-    let m = Math.floor((gap % (1000*60*60)) / (1000*60));
-
-    document.getElementById("countdown").innerHTML =
-    d + " days " + h + " hours " + m + " mins";
-}, 1000);
-
-/* SURPRISE */
-function showSurprise() {
-    document.getElementById("surprise").classList.remove("hidden");
+/* NAV */
+function show(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 }
 
-/* MUSIC */
-function toggleMusic(){
-    let music = document.getElementById("music");
-    if(music.paused){
-        music.play();
-    } else {
-        music.pause();
-    }
+/* TYPING */
+let text="You are the best thing that ever happened to me ❤️";
+let i=0;
+function type(){
+let t=document.getElementById("typing");
+let int=setInterval(()=>{
+t.innerHTML+=text[i];
+i++;
+if(i>=text.length)clearInterval(int);
+},50);
 }
 
-/* HEART ANIMATION */
-setInterval(() => {
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💜";
-    heart.style.left = Math.random() * 100 + "vw";
-    document.body.appendChild(heart);
+/* CHAT */
+let msgs=[
+["Hi ❤️","left"],
+["14 Feb… best day ever","right"],
+["Cubbon park memories 💫","left"],
+["Your hugs = home 🫠","right"]
+];
+function chatFlow(){
+let box=document.getElementById("chatBox");
+let i=0;
+let int=setInterval(()=>{
+if(i>=msgs.length)return clearInterval(int);
+let d=document.createElement("div");
+d.className="msg "+msgs[i][1];
+d.innerText=msgs[i][0];
+box.appendChild(d);
+i++;
+},1000);
+}
 
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}, 500);
+/* FINAL */
+function final(){
+document.getElementById("finalScreen").style.display="flex";
+}
+
+/* HEARTS */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💜";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},400);
+
+/* BDAY MODE */
+let today=new Date();
+if(today.getDate()==11 && today.getMonth()==5){
+document.body.style.background="black";
+}
 </script>
 
 </body>
