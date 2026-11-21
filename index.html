@@ -1,256 +1,802 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff0f5">
-<title>Happy Birthday, My Love ❤️</title>
-<style>
-:root{--pink:#e85d91;--deep:#9d3564;--lav:#b8a2e8;--cream:#fff8fb;--ink:#493443}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:78px}
-body{font-family:Georgia,"Times New Roman",serif;color:var(--ink);background:#fff9fc;line-height:1.7;overflow-x:hidden}
-.navbar{position:sticky;top:0;z-index:1000;background:rgba(255,248,251,.94);backdrop-filter:blur(12px);box-shadow:0 3px 18px #9d35641a}
-.nav-container{max-width:1200px;margin:auto;min-height:68px;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-weight:bold;color:var(--deep);font-size:1.15rem;white-space:nowrap}
-.nav-menu{display:flex;align-items:center;gap:18px;list-style:none}
-.nav-link{color:var(--ink);text-decoration:none;font:600 .9rem Arial,sans-serif;transition:.2s}
-.nav-link:hover{color:var(--pink)}
-.music-btn,.surprise-btn{border:0;border-radius:30px;background:linear-gradient(135deg,var(--pink),var(--deep));color:white;padding:11px 18px;font-weight:bold;cursor:pointer;box-shadow:0 7px 18px #e85d9140;transition:transform .2s}
-.music-btn:hover,.surprise-btn:hover{transform:translateY(-2px)}
-section{padding:85px 22px}
-.welcome{min-height:88vh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(circle at 15% 20%,#f9d9e8,transparent 35%),radial-gradient(circle at 85% 80%,#e8ddff,transparent 35%),linear-gradient(135deg,#fff8fb,#fff0f6)}
-.welcome-content{max-width:850px;position:relative;z-index:1}
-.welcome-title{font-size:clamp(2.4rem,6vw,4.7rem);line-height:1.12;color:var(--deep);margin:18px 0}
-.welcome-subtitle{font-size:1.25rem;color:#9d5a7b;margin-bottom:18px}
-.welcome-text{max-width:700px;margin:auto;font-size:1.1rem}
-.floating-hearts{display:flex;justify-content:center;gap:22px;font-size:2rem}
-.heart{display:inline-block;animation:float 3s ease-in-out infinite}
-.heart:nth-child(even){animation-delay:.7s}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-16px) rotate(8deg)}}
-.scroll-indicator{margin-top:45px;color:#a45d7e;animation:bob 1.8s infinite}
-@keyframes bob{50%{transform:translateY(7px)}}
-.section-title{text-align:center;font-size:clamp(2rem,4vw,3rem);color:var(--deep);margin-bottom:18px}
-.timeline{background:linear-gradient(#fff,#fff7fb)}
-.timeline-container{max-width:950px;margin:45px auto 0;position:relative}
-.timeline-container:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(var(--pink),var(--lav));transform:translateX(-50%)}
-.timeline-item{width:50%;padding:12px 35px;position:relative}
-.timeline-item:before{content:"❤";position:absolute;right:-13px;top:25px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:white;color:var(--pink);font-size:13px;box-shadow:0 0 0 3px #f7c8dc}
-.timeline-item.right{margin-left:50%}
-.timeline-item.right:before{left:-13px}
-.timeline-content,.message-card,.favorite-item,.moment-card{background:white;border:1px solid #f5d9e6;border-radius:18px;padding:25px;box-shadow:0 10px 28px #8b456015}
-.timeline-content h3,.moment-card h3{color:var(--deep);margin-bottom:7px}
-.date{font-weight:bold;color:#bd7192;margin-bottom:10px}
-.description{font-size:.98rem}
-.timeline-item.special .timeline-content{background:linear-gradient(135deg,#fff5fa,#f8f3ff);border-color:#e8c6df}
-.gallery{background:#fff4f9}
-.gallery-subtitle{text-align:center;color:#95627a;margin-bottom:35px}
-.gallery-grid{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.gallery-item{position:relative;overflow:hidden;border-radius:18px;background:#f8dce8;aspect-ratio:4/5;box-shadow:0 9px 24px #733b551c;cursor:pointer;transition:transform .25s}
-.gallery-item:hover{transform:translateY(-6px)}
-.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
-.gallery-item:hover img{transform:scale(1.06)}
-.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:35px 14px 14px;color:white;font-weight:bold;background:linear-gradient(transparent,#28121dcc);text-align:center}
-.messages{background:linear-gradient(135deg,#fff9fc,#f8f3ff)}
-.messages-grid{max-width:1050px;margin:35px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.message-card{display:flex;flex-direction:column;justify-content:space-between;min-height:190px}
-.message-text{font-style:italic}
-.message-label{color:var(--deep);font-weight:bold;margin-top:15px}
-.about{background:#fff}
-.favorites-grid{max-width:1000px;margin:35px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.favorite-item{text-align:center;padding:25px 16px}
-.favorite-icon{font-size:2.5rem;margin-bottom:8px}
-.favorite-item h3{color:var(--deep);font-size:1.1rem}
-.favorite-item>p:nth-of-type(1){font-weight:bold;font-size:1.1rem}
-.favorite-note{font-size:.9rem;color:#95627a;margin-top:8px}
-.special-moments{background:linear-gradient(135deg,#fff2f8,#f3efff)}
-.moments-container{max-width:1000px;margin:35px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.moment-card p{margin-top:12px}
-.birthday-wish{background:#fff}
-.wish-content{max-width:850px;margin:30px auto 0;padding:35px;background:linear-gradient(135deg,#fff7fb,#f8f4ff);border:1px solid #f1d5e4;border-radius:20px;box-shadow:0 12px 30px #733b5512}
-.wish-content p{margin:0 0 16px}
-.signature{font-weight:bold;color:var(--deep);text-align:right;margin-top:28px!important}
-.surprise{text-align:center;background:linear-gradient(135deg,#fce8f1,#eee7ff)}
-.surprise-container{max-width:850px;margin:25px auto 0}
-.surprise-btn{font-size:1.05rem;padding:15px 26px}
-.surprise-content{margin-top:25px;transition:all .5s}
-.hidden{display:none}
-.surprise-message{position:relative;overflow:hidden;background:white;border-radius:20px;padding:35px;box-shadow:0 12px 30px #733b5520}
-.surprise-message h3{color:var(--deep);font-size:1.5rem;margin-bottom:15px}
-.surprise-message p{margin:12px 0}
-.confetti-animation{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;font-size:1.8rem;margin-top:20px}
-.confetti{display:inline-block;animation:float 2s ease-in-out infinite}
-.footer{text-align:center;background:#713653;color:white;padding:28px 15px}
-.footer p+p{opacity:.85}
-.lightbox{position:fixed;inset:0;background:#160b16eF;z-index:2000;display:none;align-items:center;justify-content:center;padding:25px}
-.lightbox.open{display:flex}
-.lightbox img{max-width:min(92vw,1000px);max-height:82vh;object-fit:contain;border-radius:10px;box-shadow:0 15px 50px #0008}
-.lightbox-close{position:absolute;top:18px;right:25px;border:0;background:none;color:white;font-size:2.5rem;cursor:pointer}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:none}
-@media(max-width:900px){.nav-container{flex-wrap:wrap;justify-content:center}.nav-menu{order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:10px 16px}.gallery-grid{grid-template-columns:repeat(2,1fr)}.messages-grid{grid-template-columns:repeat(2,1fr)}.favorites-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){section{padding:65px 16px}.logo{font-size:1rem}.nav-link{font-size:.78rem}.timeline-container:before{left:10px}.timeline-item,.timeline-item.right{width:100%;margin-left:0;padding:10px 0 10px 35px}.timeline-item:before,.timeline-item.right:before{left:-3px;right:auto}.gallery-grid{gap:12px}.gallery-caption{font-size:.85rem}.messages-grid,.moments-container{grid-template-columns:1fr}.favorites-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.favorite-item{padding:20px 10px}.wish-content{padding:24px 19px}.floating-hearts{font-size:1.6rem;gap:14px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="navbar">
- <div class="nav-container">
-  <div class="logo">💖 Our Love Story</div>
-  <ul class="nav-menu">
-   <li><a href="#welcome" class="nav-link">Home</a></li><li><a href="#timeline" class="nav-link">Memories</a></li>
-   <li><a href="#gallery" class="nav-link">Gallery</a></li><li><a href="#messages" class="nav-link">Messages</a></li>
-   <li><a href="#about" class="nav-link">About Her</a></li><li><a href="#birthday" class="nav-link">Birthday Wish</a></li>
-  </ul>
-  <button id="musicBtn" class="music-btn" type="button">🎵 Play Music</button>
- </div>
-</nav>
-<audio id="bgMusic" loop preload="none"><source src="music/laila.mpeg" type="audio/mpeg"></audio>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">💖 Our Love Story</div>
+            <ul class="nav-menu">
+                <li><a href="#welcome" class="nav-link">Home</a></li>
+                <li><a href="#timeline" class="nav-link">Memories</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#messages" class="nav-link">Messages</a></li>
+                <li><a href="#about" class="nav-link">About Her</a></li>
+                <li><a href="#birthday" class="nav-link">Birthday Wish</a></li>
+            </ul>
+            <div class="music-toggle">
+                <button id="musicBtn" class="music-btn">🎵 Music</button>
+            </div>
+        </div>
+    </nav>
 
-<section id="welcome" class="welcome">
- <div class="welcome-content">
-  <div class="floating-hearts"><span class="heart">❤️</span><span class="heart">💜</span><span class="heart">🤍</span><span class="heart">💖</span><span class="heart">💝</span></div>
-  <h1 class="welcome-title">Happy Birthday, My Love ❤️</h1>
-  <p class="welcome-subtitle">June 11th - A day as beautiful as you</p>
-  <p class="welcome-text">On this special day, I want to celebrate not just your birthday, but the incredible journey we've shared together. Every moment with you has been a blessing, and I'm grateful for every memory we've created.</p>
-  <div class="scroll-indicator">Scroll to explore our story ↓</div>
- </div>
-</section>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music/laila.mpeg" type="audio/mpeg">
+    </audio>
 
-<section id="timeline" class="timeline">
- <h2 class="section-title">Our Beautiful Journey</h2>
- <div class="timeline-container">
-  <article class="timeline-item left"><div class="timeline-content"><h3>Our First Meeting</h3><p class="date">February 14 - BTM Park</p><p class="description">The day everything changed. I still remember the butterflies in my stomach when I first saw you. It was Valentine's Day, and fate brought us together in the most magical way. You were even more beautiful than I imagined, and your smile made my heart skip a beat.</p></div></article>
-  <article class="timeline-item right"><div class="timeline-content"><h3>Cubbon Park Adventure</h3><p class="date">February 20 - Cubbon Park</p><p class="description">Our second meeting was like a dream. Walking through the park with you, I felt like the luckiest person alive. The way you laughed, the way you looked at me - everything felt so right, so perfect. I knew then that you were someone truly special.</p></div></article>
-  <article class="timeline-item left"><div class="timeline-content"><h3>Growing Closer</h3><p class="date">March 4 - Cubbon Park</p><p class="description">Every time we met, I fell for you a little more. This day at Cubbon Park was no exception. We talked for hours, and I realized how deeply I was falling for you. Your kindness, your warmth, your beautiful soul - everything about you captivates me.</p></div></article>
-  <article class="timeline-item right"><div class="timeline-content"><h3>HSR &amp; Kanakadasa Moments</h3><p class="date">March 7 - HSR &amp; Kanakadasa</p><p class="description">Exploring new places with you felt like an adventure. Every corner we turned, every moment we shared, brought us closer. I loved seeing the world through your eyes, experiencing life with you by my side.</p></div></article>
-  <article class="timeline-item left"><div class="timeline-content"><h3>Lal Bagh Dreams</h3><p class="date">March 20 - Lal Bagh Park</p><p class="description">The beauty of Lal Bagh couldn't compare to the beauty of being with you. Among the flowers and greenery, I felt like I was in paradise - not because of the place, but because you were there with me.</p></div></article>
-  <article class="timeline-item right special"><div class="timeline-content"><h3>🍝 The Pasta Picnic - A Moment of Pure Love</h3><p class="date">April 14 - Lal Bagh Park</p><p class="description">This day will forever be etched in my heart. You cooked the most delicious red sauce pasta with so much love, and then you fed me with your own hands. It wasn't just about the food - it was about the tenderness, the care, the intimacy of that moment. I felt so loved, so cherished. That simple act of feeding me showed me how deeply you care. I'll never forget the sweetness of that moment. 💗</p></div></article>
-  <article class="timeline-item left special"><div class="timeline-content"><h3>💗 The Cuddling Moment - Pure Bliss</h3><p class="date">April 20 - Lal Bagh Park</p><p class="description">In your arms, I found peace. That emotional cuddling moment was so peaceful, so pure, so unforgettable. Time seemed to stop. The world faded away, and all that mattered was you and me. Your warmth, your presence, the way you held me - it felt like home. I love you more than words could ever express. 💜</p></div></article>
- </div>
-</section>
+    <!-- Welcome Section -->
+    <section id="welcome" class="welcome">
+        <div class="welcome-content">
+            <div class="floating-hearts">
+                <span class="heart">❤️</span>
+                <span class="heart">💜</span>
+                <span class="heart">🤍</span>
+                <span class="heart">💖</span>
+                <span class="heart">💝</span>
+            </div>
+            <h1 class="welcome-title">Happy Birthday, My Love ❤️</h1>
+            <p class="welcome-subtitle">June 11th - A day as beautiful as you</p>
+            <p class="welcome-text">
+                On this special day, I want to celebrate not just your birthday, but the incredible journey we've shared together. 
+                Every moment with you has been a blessing, and I'm grateful for every memory we've created.
+            </p>
+            <div class="scroll-indicator">
+                <span>Scroll to explore our story ↓</span>
+            </div>
+        </div>
+    </section>
 
-<section id="gallery" class="gallery">
- <h2 class="section-title">Our Precious Moments</h2><p class="gallery-subtitle">Each photo holds a thousand words of love</p>
- <div class="gallery-grid">
-  <div class="gallery-item"><img loading="lazy" src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/smile1.jpeg" alt="Our First Meeting"><p class="gallery-caption">Our First Meeting</p></div>
-  <div class="gallery-item"><img loading="lazy" src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/Snapchat-1618791039.jpg" alt="Cubbon Park Adventures"><p class="gallery-caption">Cubbon Park Adventures</p></div>
-  <div class="gallery-item"><img loading="lazy" src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/Snapchat-1780260680.jpg" alt="Sunset Moments"><p class="gallery-caption">Sunset Moments</p></div>
-  <div class="gallery-item"><img loading="lazy" src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/bubu1.jpeg" alt="Lal Bagh Memories"><p class="gallery-caption">Lal Bagh Memories</p></div>
-  <div class="gallery-item"><img loading="lazy" src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/funny.jpeg" alt="Your Beautiful Smile"><p class="gallery-caption">Your Beautiful Smile</p></div>
-  <div class="gallery-item"><img loading="lazy" src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/kiss.jpeg" alt="Us Together"><p class="gallery-caption">Us Together</p></div>
-  <div class="gallery-item"><img loading="lazy" src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/uss3.jpeg" alt="Precious Moments"><p class="gallery-caption">Precious Moments</p></div>
- </div>
-</section>
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline">
+        <h2 class="section-title">Our Beautiful Journey</h2>
+        <div class="timeline-container">
+            <!-- Memory 1 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Our First Meeting</h3>
+                    <p class="date">February 14 - BTM Park</p>
+                    <p class="description">
+                        The day everything changed. I still remember the butterflies in my stomach when I first saw you. 
+                        It was Valentine's Day, and fate brought us together in the most magical way. You were even more beautiful 
+                        than I imagined, and your smile made my heart skip a beat.
+                    </p>
+                </div>
+            </div>
 
-<section id="messages" class="messages">
- <h2 class="section-title">Messages From My Heart</h2>
- <div class="messages-grid">
-  <article class="message-card"><p class="message-text">"You are my favorite notification, my favorite text, my favorite person. Every day with you feels like a gift I never knew I needed."</p><p class="message-label">💕 Cute &amp; Sweet</p></article>
-  <article class="message-card"><p class="message-text">"In a world of chaos, you are my calm. In a world of darkness, you are my light. You are my reason to smile, my reason to believe in love."</p><p class="message-label">💜 Deep &amp; Emotional</p></article>
-  <article class="message-card"><p class="message-text">"I promise to love you on your best days and hold you on your worst. I promise to be your biggest cheerleader and your safe harbor. Forever, it's you and me."</p><p class="message-label">🤍 Promise &amp; Future</p></article>
-  <article class="message-card"><p class="message-text">"You make me want to be a better person. Not because I'm not good enough, but because you inspire me to be the best version of myself for you and for us."</p><p class="message-label">💖 Love &amp; Growth</p></article>
-  <article class="message-card"><p class="message-text">"My heart knew you before my mind caught up. It's like you were always meant to be mine, and I was always meant to be yours. We were written in the stars."</p><p class="message-label">✨ Soulmate</p></article>
-  <article class="message-card"><p class="message-text">"Thank you for being you. For your kindness, your laughter, your beautiful soul. You've changed my life in ways I never thought possible. I love you endlessly."</p><p class="message-label">🙏 Gratitude</p></article>
- </div>
-</section>
+            <!-- Memory 2 -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Cubbon Park Adventure</h3>
+                    <p class="date">February 20 - Cubbon Park</p>
+                    <p class="description">
+                        Our second meeting was like a dream. Walking through the park with you, I felt like the luckiest person alive. 
+                        The way you laughed, the way you looked at me - everything felt so right, so perfect. 
+                        I knew then that you were someone truly special.
+                    </p>
+                </div>
+            </div>
 
-<section id="about" class="about">
- <h2 class="section-title">About Her - My Favorite Person</h2>
- <div class="favorites-grid">
-  <article class="favorite-item"><div class="favorite-icon">🍛</div><h3>Favorite Food</h3><p>Biryani</p><p class="favorite-note">The way you enjoy biryani makes me fall for you all over again</p></article>
-  <article class="favorite-item"><div class="favorite-icon">🤍💜</div><h3>Favorite Colors</h3><p>White &amp; Lavender</p><p class="favorite-note">Just like these colors, you bring peace and elegance to my life</p></article>
-  <article class="favorite-item"><div class="favorite-icon">🌷</div><h3>Favorite Flower</h3><p>Tulip</p><p class="favorite-note">As graceful and beautiful as you are</p></article>
-  <article class="favorite-item"><div class="favorite-icon">🦢</div><h3>Favorite Bird</h3><p>Swan</p><p class="favorite-note">Elegant, graceful, and absolutely stunning - just like you</p></article>
- </div>
-</section>
+            <!-- Memory 3 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Growing Closer</h3>
+                    <p class="date">March 4 - Cubbon Park</p>
+                    <p class="description">
+                        Every time we met, I fell for you a little more. This day at Cubbon Park was no exception. 
+                        We talked for hours, and I realized how deeply I was falling for you. Your kindness, your warmth, 
+                        your beautiful soul - everything about you captivates me.
+                    </p>
+                </div>
+            </div>
 
-<section id="special" class="special-moments">
- <h2 class="section-title">Moments That Changed Everything</h2>
- <div class="moments-container">
-  <article class="moment-card"><h3>🍝 The Pasta Picnic</h3><p>There are moments in life that define everything that comes after. The pasta picnic is one of those moments for me.</p><p>You had prepared red sauce pasta with such care and love. But what made it truly magical wasn't the food itself - it was the way you fed me with your own hands. In that simple gesture, I saw the depth of your love, the tenderness of your heart, and the beauty of your soul.</p><p>That moment showed me that love isn't always about grand gestures. Sometimes, it's about the quiet intimacy, the gentle care, the way you make someone feel cherished. I'll carry that memory in my heart forever. 💗</p></article>
-  <article class="moment-card"><h3>💗 The Cuddling Moment</h3><p>In your arms, I found something I didn't know I was searching for - peace.</p><p>That emotional cuddling moment at Lal Bagh was transcendent. Time stopped. The world faded away. It was just you and me, two souls connecting on the deepest level. Your warmth, your presence, the way you held me - it felt like coming home after a long journey.</p><p>I've never felt more at peace, more loved, more complete. That moment taught me what true intimacy means. It's not just about physical closeness - it's about emotional vulnerability, spiritual connection, and the profound comfort of being truly known and accepted by another soul.</p><p>Thank you for those moments. Thank you for being my safe harbor. 💜</p></article>
- </div>
-</section>
+            <!-- Memory 4 -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>HSR & Kanakadasa Moments</h3>
+                    <p class="date">March 7 - HSR & Kanakadasa</p>
+                    <p class="description">
+                        Exploring new places with you felt like an adventure. Every corner we turned, every moment we shared, 
+                        brought us closer. I loved seeing the world through your eyes, experiencing life with you by my side.
+                    </p>
+                </div>
+            </div>
 
-<section id="birthday" class="birthday-wish">
- <h2 class="section-title">My Birthday Wish For You</h2>
- <div class="wish-content">
-  <p>My dearest love,</p><p>Today is your birthday, and I want to take a moment to tell you what you mean to me.</p>
-  <p><strong>Gratitude:</strong> I am grateful for every single day I get to spend with you. You've brought so much joy, so much light into my life. Before you, I didn't know what true happiness felt like. You've changed me in the most beautiful ways.</p>
-  <p><strong>Love:</strong> My love for you grows deeper with each passing day. It's not just a feeling - it's a choice I make every morning when I wake up and think of you. It's the way my heart races when I see your name. It's the way I miss you even when you're right beside me. You are my greatest love, my deepest connection, my soulmate.</p>
-  <p><strong>Appreciation:</strong> I appreciate your kindness, your strength, your vulnerability. I appreciate the way you make me laugh until my sides hurt. I appreciate the way you listen to me, really listen, and make me feel heard. I appreciate your dreams, your ambitions, your beautiful spirit.</p>
-  <p><strong>Future Dreams:</strong> I dream of a lifetime with you. I dream of building a home filled with love and laughter. I dream of growing old with you, of facing life's challenges together, of celebrating countless more birthdays. I dream of a future where you know, without a doubt, that you are loved beyond measure.</p>
-  <p>On this special day, I want you to know that you are extraordinary. You are worthy of all the love, all the happiness, all the beauty this world has to offer. I am honored to be the one by your side.</p>
-  <p>Happy Birthday, my love. Today, and every day, I celebrate you. 💖</p>
-  <p class="signature">Forever yours,<br>Your Love ❤️</p>
- </div>
-</section>
+            <!-- Memory 5 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Lal Bagh Dreams</h3>
+                    <p class="date">March 20 - Lal Bagh Park</p>
+                    <p class="description">
+                        The beauty of Lal Bagh couldn't compare to the beauty of being with you. 
+                        Among the flowers and greenery, I felt like I was in paradise - not because of the place, 
+                        but because you were there with me.
+                    </p>
+                </div>
+            </div>
 
-<section id="surprise" class="surprise">
- <h2 class="section-title">One More Thing...</h2>
- <div class="surprise-container"><button id="surpriseBtn" class="surprise-btn" type="button">💝 Click Me for a Surprise 💝</button>
-  <div id="surpriseContent" class="surprise-content hidden" aria-live="polite"><div class="surprise-message"><h3>My Final Secret Message</h3>
-   <p>I love you. Not because you're perfect, but because loving you feels like the most natural thing in the world. You are my favorite person, my greatest adventure, my sweetest dream come true.</p>
-   <p>Thank you for saying yes to us. Thank you for choosing me. Thank you for being the incredible woman that you are.</p><p>I can't wait to spend forever with you. 💖</p>
-   <div class="confetti-animation"><span class="confetti">❤️</span><span class="confetti">💜</span><span class="confetti">🤍</span><span class="confetti">💖</span><span class="confetti">💝</span><span class="confetti">✨</span><span class="confetti">🌹</span><span class="confetti">🌷</span></div>
-  </div></div>
- </div>
-</section>
-<footer class="footer"><p>Made with 💖 for the love of my life</p><p>Happy Birthday, June 11th ❤️</p></footer>
+            <!-- Memory 6 - Special -->
+            <div class="timeline-item right special">
+                <div class="timeline-content">
+                    <h3>🍝 The Pasta Picnic - A Moment of Pure Love</h3>
+                    <p class="date">April 14 - Lal Bagh Park</p>
+                    <p class="description">
+                        This day will forever be etched in my heart. You cooked the most delicious red sauce pasta with so much love, 
+                        and then you fed me with your own hands. It wasn't just about the food - it was about the tenderness, 
+                        the care, the intimacy of that moment. I felt so loved, so cherished. That simple act of feeding me 
+                        showed me how deeply you care. I'll never forget the sweetness of that moment, the way you looked at me 
+                        with such affection. You made me feel like the most special person in the world. 💗
+                    </p>
+                </div>
+            </div>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="lightbox-close" id="lightboxClose" aria-label="Close photo">&times;</button><img id="lightboxImage" alt=""></div>
+            <!-- Memory 7 - Special -->
+            <div class="timeline-item left special">
+                <div class="timeline-content">
+                    <h3>💗 The Cuddling Moment - Pure Bliss</h3>
+                    <p class="date">April 20 - Lal Bagh Park</p>
+                    <p class="description">
+                        In your arms, I found peace. That emotional cuddling moment was so peaceful, so pure, so unforgettable. 
+                        Time seemed to stop. The world faded away, and all that mattered was you and me. Your warmth, your presence, 
+                        the way you held me - it felt like home. I've never felt more at peace, more loved, more complete. 
+                        That moment taught me what true intimacy means - it's not just physical, it's emotional, spiritual, 
+                        it's two souls connecting on the deepest level. I love you more than words could ever express. 💜
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-"use strict";
-document.addEventListener("DOMContentLoaded", () => {
- const music = document.getElementById("bgMusic");
- const musicBtn = document.getElementById("musicBtn");
- musicBtn.addEventListener("click", async () => {
-  if (music.paused) {
-   try { await music.play(); musicBtn.textContent = "⏸ Pause Music"; }
-   catch (error) { musicBtn.textContent = "🎵 Music unavailable"; console.error("Audio could not be played:", error); }
-  } else { music.pause(); musicBtn.textContent = "🎵 Play Music"; }
- });
- music.addEventListener("ended", () => { musicBtn.textContent = "🎵 Play Music"; });
+    <!-- Photo Gallery -->
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Our Precious Moments</h2>
+        <p class="gallery-subtitle">Each photo holds a thousand words of love</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/smile1.jpeg" alt="Our First Meeting" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Our First Meeting</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/Snapchat-1618791039.jpg" alt="Cubbon Park Adventures" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Cubbon Park Adventures</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/Snapchat-1780260680.jpg" alt="Sunset Moments" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Sunset Moments</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/bubu1.jpeg" alt="Lal Bagh Memories" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Lal Bagh Memories</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/funny.jpeg" alt="Your Beautiful Smile" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Your Beautiful Smile</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/kiss.jpeg" alt="Us Together" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Us Together</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/uss3.jpeg" alt="Precious Moments" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Precious Moments</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/her.jpeg" alt="Our Moments" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Cute Moments</p>
+            </div>
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">💖 Our Love Story</div>
+            <ul class="nav-menu">
+                <li><a href="#welcome" class="nav-link">Home</a></li>
+                <li><a href="#timeline" class="nav-link">Memories</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#messages" class="nav-link">Messages</a></li>
+                <li><a href="#about" class="nav-link">About Her</a></li>
+                <li><a href="#birthday" class="nav-link">Birthday Wish</a></li>
+            </ul>
+            <div class="music-toggle">
+                <button id="musicBtn" class="music-btn">🎵 Music</button>
+            </div>
+        </div>
+    </nav>
 
- const surpriseBtn = document.getElementById("surpriseBtn");
- const surpriseContent = document.getElementById("surpriseContent");
- surpriseBtn.addEventListener("click", () => {
-  const isHidden = surpriseContent.classList.toggle("hidden");
-  surpriseBtn.textContent = isHidden ? "💝 Click Me for a Surprise 💝" : "💖 Hide My Surprise 💖";
-  if (!isHidden) surpriseContent.scrollIntoView({behavior:"smooth", block:"center"});
- });
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music/laila.mpeg" type="audio/mpeg">
+    </audio>
 
- const lightbox = document.getElementById("lightbox");
- const lightboxImage = document.getElementById("lightboxImage");
- const closeLightbox = () => { lightbox.classList.remove("open"); document.body.style.overflow = ""; };
- document.querySelectorAll(".gallery-item img").forEach(img => {
-  img.addEventListener("click", () => {
-   lightboxImage.src = img.currentSrc || img.src;
-   lightboxImage.alt = img.alt;
-   lightbox.classList.add("open");
-   document.body.style.overflow = "hidden";
-  });
- });
- document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
- lightbox.addEventListener("click", event => { if (event.target === lightbox) closeLightbox(); });
- document.addEventListener("keydown", event => { if (event.key === "Escape") closeLightbox(); });
+    <!-- Welcome Section -->
+    <section id="welcome" class="welcome">
+        <div class="welcome-content">
+            <div class="floating-hearts">
+                <span class="heart">❤️</span>
+                <span class="heart">💜</span>
+                <span class="heart">🤍</span>
+                <span class="heart">💖</span>
+                <span class="heart">💝</span>
+            </div>
+            <h1 class="welcome-title">Happy Birthday, My Love ❤️</h1>
+            <p class="welcome-subtitle">June 11th - A day as beautiful as you</p>
+            <p class="welcome-text">
+                On this special day, I want to celebrate not just your birthday, but the incredible journey we've shared together. 
+                Every moment with you has been a blessing, and I'm grateful for every memory we've created.
+            </p>
+            <div class="scroll-indicator">
+                <span>Scroll to explore our story ↓</span>
+            </div>
+        </div>
+    </section>
 
- const revealTargets = document.querySelectorAll(".timeline-item,.gallery-item,.message-card,.favorite-item,.moment-card,.wish-content");
- revealTargets.forEach(el => el.classList.add("reveal"));
- if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(entries => {
-   entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } });
-  }, {threshold:0.12});
-  revealTargets.forEach(el => observer.observe(el));
- } else revealTargets.forEach(el => el.classList.add("visible"));
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline">
+        <h2 class="section-title">Our Beautiful Journey</h2>
+        <div class="timeline-container">
+            <!-- Memory 1 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Our First Meeting</h3>
+                    <p class="date">February 14 - BTM Park</p>
+                    <p class="description">
+                        The day everything changed. I still remember the butterflies in my stomach when I first saw you. 
+                        It was Valentine's Day, and fate brought us together in the most magical way. You were even more beautiful 
+                        than I imagined, and your smile made my heart skip a beat.
+                    </p>
+                </div>
+            </div>
 
- document.querySelectorAll('.nav-link').forEach(link => link.addEventListener("click", () => {
-  document.querySelectorAll(".nav-link").forEach(item => item.removeAttribute("aria-current"));
-  link.setAttribute("aria-current","page");
- }));
-});
-</script>
+            <!-- Memory 2 -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Cubbon Park Adventure</h3>
+                    <p class="date">February 20 - Cubbon Park</p>
+                    <p class="description">
+                        Our second meeting was like a dream. Walking through the park with you, I felt like the luckiest person alive. 
+                        The way you laughed, the way you looked at me - everything felt so right, so perfect. 
+                        I knew then that you were someone truly special.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Memory 3 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Growing Closer</h3>
+                    <p class="date">March 4 - Cubbon Park</p>
+                    <p class="description">
+                        Every time we met, I fell for you a little more. This day at Cubbon Park was no exception. 
+                        We talked for hours, and I realized how deeply I was falling for you. Your kindness, your warmth, 
+                        your beautiful soul - everything about you captivates me.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Memory 4 -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>HSR & Kanakadasa Moments</h3>
+                    <p class="date">March 7 - HSR & Kanakadasa</p>
+                    <p class="description">
+                        Exploring new places with you felt like an adventure. Every corner we turned, every moment we shared, 
+                        brought us closer. I loved seeing the world through your eyes, experiencing life with you by my side.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Memory 5 -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Lal Bagh Dreams</h3>
+                    <p class="date">March 20 - Lal Bagh Park</p>
+                    <p class="description">
+                        The beauty of Lal Bagh couldn't compare to the beauty of being with you. 
+                        Among the flowers and greenery, I felt like I was in paradise - not because of the place, 
+                        but because you were there with me.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Memory 6 - Special -->
+            <div class="timeline-item right special">
+                <div class="timeline-content">
+                    <h3>🍝 The Pasta Picnic - A Moment of Pure Love</h3>
+                    <p class="date">April 14 - Lal Bagh Park</p>
+                    <p class="description">
+                        This day will forever be etched in my heart. You cooked the most delicious red sauce pasta with so much love, 
+                        and then you fed me with your own hands. It wasn't just about the food - it was about the tenderness, 
+                        the care, the intimacy of that moment. I felt so loved, so cherished. That simple act of feeding me 
+                        showed me how deeply you care. I'll never forget the sweetness of that moment, the way you looked at me 
+                        with such affection. You made me feel like the most special person in the world. 💗
+                    </p>
+                </div>
+            </div>
+
+            <!-- Memory 7 - Special -->
+            <div class="timeline-item left special">
+                <div class="timeline-content">
+                    <h3>💗 The Cuddling Moment - Pure Bliss</h3>
+                    <p class="date">April 20 - Lal Bagh Park</p>
+                    <p class="description">
+                        In your arms, I found peace. That emotional cuddling moment was so peaceful, so pure, so unforgettable. 
+                        Time seemed to stop. The world faded away, and all that mattered was you and me. Your warmth, your presence, 
+                        the way you held me - it felt like home. I've never felt more at peace, more loved, more complete. 
+                        That moment taught me what true intimacy means - it's not just physical, it's emotional, spiritual, 
+                        it's two souls connecting on the deepest level. I love you more than words could ever express. 💜
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="gallery">
+        <h2 class="section-title">Our Precious Moments</h2>
+        <p class="gallery-subtitle">Each photo holds a thousand words of love</p>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/smile1.jpeg" alt="Our First Meeting" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Our First Meeting</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/Snapchat-1618791039.jpg" alt="Cubbon Park Adventures" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Cubbon Park Adventures</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/Snapchat-1780260680.jpg" alt="Sunset Moments" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Sunset Moments</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/bubu1.jpeg" alt="Lal Bagh Memories" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Lal Bagh Memories</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/funny.jpeg" alt="Your Beautiful Smile" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Your Beautiful Smile</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/kiss.jpeg" alt="Us Together" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Us Together</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/uss3.jpeg" alt="Precious Moments" style="width: 100%; height: 100%; object-fit: cover;">
+                <p class="gallery-caption">Precious Moments</p>
+            </div> 
+        </div>
+        <p class="gallery-note">💡 Tip: Replace the 📸 placeholders with your actual photos by adding image URLs or uploading them to the images folder</p>
+    </section>
+
+    <!-- Love Messages Section -->
+    <section id="messages" class="messages">
+        <h2 class="section-title">Messages From My Heart</h2>
+        <div class="messages-grid">
+            <div class="message-card">
+                <p class="message-text">
+                    "You are my favorite notification, my favorite text, my favorite person. 
+                    Every day with you feels like a gift I never knew I needed."
+                </p>
+                <p class="message-label">💕 Cute & Sweet</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "In a world of chaos, you are my calm. In a world of darkness, you are my light. 
+                    You are my reason to smile, my reason to believe in love."
+                </p>
+                <p class="message-label">💜 Deep & Emotional</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "I promise to love you on your best days and hold you on your worst. 
+                    I promise to be your biggest cheerleader and your safe harbor. Forever, it's you and me."
+                </p>
+                <p class="message-label">🤍 Promise & Future</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "You make me want to be a better person. Not because I'm not good enough, 
+                    but because you inspire me to be the best version of myself for you and for us."
+                </p>
+                <p class="message-label">💖 Love & Growth</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "My heart knew you before my mind caught up. It's like you were always meant to be mine, 
+                    and I was always meant to be yours. We were written in the stars."
+                </p>
+                <p class="message-label">✨ Soulmate</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "Thank you for being you. For your kindness, your laughter, your beautiful soul. 
+                    You've changed my life in ways I never thought possible. I love you endlessly."
+                </p>
+                <p class="message-label">🙏 Gratitude</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Her Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Her - My Favorite Person</h2>
+        <div class="favorites-grid">
+            <div class="favorite-item">
+                <div class="favorite-icon">🍛</div>
+                <h3>Favorite Food</h3>
+                <p>Biryani</p>
+                <p class="favorite-note">The way you enjoy biryani makes me fall for you all over again</p>
+            </div>
+            <div class="favorite-item">
+                <div class="favorite-icon">🤍💜</div>
+                <h3>Favorite Colors</h3>
+                <p>White & Lavender</p>
+                <p class="favorite-note">Just like these colors, you bring peace and elegance to my life</p>
+            </div>
+            <div class="favorite-item">
+                <div class="favorite-icon">🌷</div>
+                <h3>Favorite Flower</h3>
+                <p>Tulip</p>
+                <p class="favorite-note">As graceful and beautiful as you are</p>
+            </div>
+            <div class="favorite-item">
+                <div class="favorite-icon">🦢</div>
+                <h3>Favorite Bird</h3>
+                <p>Swan</p>
+                <p class="favorite-note">Elegant, graceful, and absolutely stunning - just like you</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Moments Highlight -->
+    <section id="special" class="special-moments">
+        <h2 class="section-title">Moments That Changed Everything</h2>
+        <div class="moments-container">
+            <div class="moment-card">
+                <h3>🍝 The Pasta Picnic</h3>
+                <p>
+                    There are moments in life that define everything that comes after. The pasta picnic is one of those moments for me.
+                </p>
+                <p>
+                    You had prepared red sauce pasta with such care and love. But what made it truly magical wasn't the food itself - 
+                    it was the way you fed me with your own hands. In that simple gesture, I saw the depth of your love, 
+                    the tenderness of your heart, and the beauty of your soul.
+                </p>
+                <p>
+                    That moment showed me that love isn't always about grand gestures. Sometimes, it's about the quiet intimacy, 
+                    the gentle care, the way you make someone feel cherished. You made me feel like the most important person in the world. 
+                    I'll carry that memory in my heart forever. 💗
+                </p>
+            </div>
+            <div class="moment-card">
+                <h3>💗 The Cuddling Moment</h3>
+                <p>
+                    In your arms, I found something I didn't know I was searching for - peace.
+                </p>
+                <p>
+                    That emotional cuddling moment at Lal Bagh was transcendent. Time stopped. The world faded away. 
+                    It was just you and me, two souls connecting on the deepest level. Your warmth, your presence, 
+                    the way you held me - it felt like coming home after a long journey.
+                </p>
+                <p>
+                    I've never felt more at peace, more loved, more complete. That moment taught me what true intimacy means. 
+                    It's not just about physical closeness - it's about emotional vulnerability, spiritual connection, 
+                    and the profound comfort of being truly known and accepted by another soul.
+                </p>
+                <p>
+                    Thank you for those moments. Thank you for being my safe harbor. 💜
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birthday Wish Section -->
+    <section id="birthday" class="birthday-wish">
+        <h2 class="section-title">My Birthday Wish For You</h2>
+        <div class="wish-content">
+            <p>
+                My dearest love,
+            </p>
+            <p>
+                Today is your birthday, and I want to take a moment to tell you what you mean to me.
+            </p>
+            <p>
+                <strong>Gratitude:</strong> I am grateful for every single day I get to spend with you. 
+                You've brought so much joy, so much light into my life. Before you, I didn't know what true happiness felt like. 
+                You've changed me in the most beautiful ways.
+            </p>
+            <p>
+                <strong>Love:</strong> My love for you grows deeper with each passing day. It's not just a feeling - 
+                it's a choice I make every morning when I wake up and think of you. It's the way my heart races when I see your name. 
+                It's the way I miss you even when you're right beside me. You are my greatest love, my deepest connection, my soulmate.
+            </p>
+            <p>
+                <strong>Appreciation:</strong> I appreciate your kindness, your strength, your vulnerability. 
+                I appreciate the way you make me laugh until my sides hurt. I appreciate the way you listen to me, 
+                really listen, and make me feel heard. I appreciate your dreams, your ambitions, your beautiful spirit.
+            </p>
+            <p>
+                <strong>Future Dreams:</strong> I dream of a lifetime with you. I dream of building a home filled with love and laughter. 
+                I dream of growing old with you, of facing life's challenges together, of celebrating countless more birthdays. 
+                I dream of a future where you know, without a doubt, that you are loved beyond measure.
+            </p>
+            <p>
+                On this special day, I want you to know that you are extraordinary. You are worthy of all the love, 
+                all the happiness, all the beauty this world has to offer. I am honored to be the one by your side.
+            </p>
+            <p>
+                Happy Birthday, my love. Today, and every day, I celebrate you. 💖
+            </p>
+            <p class="signature">
+                Forever yours,<br>
+                Your Love ❤️
+            </p>
+        </div>
+    </section>
+
+    <!-- Final Surprise Section -->
+    <section id="surprise" class="surprise">
+        <h2 class="section-title">One More Thing...</h2>
+        <div class="surprise-container">
+            <button id="surpriseBtn" class="surprise-btn">💝 Click Me for a Surprise 💝</button>
+            <div id="surpriseContent" class="surprise-content hidden">
+                <div class="surprise-message">
+                    <h3>My Final Secret Message</h3>
+                    <p>
+                        I love you. Not because you're perfect, but because loving you feels like the most natural thing in the world. 
+                        You are my favorite person, my greatest adventure, my sweetest dream come true.
+                    </p>
+                    <p>
+                        Thank you for saying yes to us. Thank you for choosing me. Thank you for being the incredible woman that you are.
+                    </p>
+                    <p>
+                        I can't wait to spend forever with you. 💖
+                    </p>
+                    <div class="confetti-animation">
+                        <span class="confetti">❤️</span>
+                        <span class="confetti">💜</span>
+                        <span class="confetti">🤍</span>
+                        <span class="confetti">💖</span>
+                        <span class="confetti">💝</span>
+                        <span class="confetti">✨</span>
+                        <span class="confetti">🌹</span>
+                        <span class="confetti">🌷</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with 💖 for the love of my life</p>
+        <p>Happy Birthday, June 11th ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+        </div>
+        <p class="gallery-note">💡 Tip: Replace the 📸 placeholders with your actual photos by adding image URLs or uploading them to the images folder</p>
+    </section>
+
+    <!-- Love Messages Section -->
+    <section id="messages" class="messages">
+        <h2 class="section-title">Messages From My Heart</h2>
+        <div class="messages-grid">
+            <div class="message-card">
+                <p class="message-text">
+                    "You are my favorite notification, my favorite text, my favorite person. 
+                    Every day with you feels like a gift I never knew I needed."
+                </p>
+                <p class="message-label">💕 Cute & Sweet</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "In a world of chaos, you are my calm. In a world of darkness, you are my light. 
+                    You are my reason to smile, my reason to believe in love."
+                </p>
+                <p class="message-label">💜 Deep & Emotional</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "I promise to love you on your best days and hold you on your worst. 
+                    I promise to be your biggest cheerleader and your safe harbor. Forever, it's you and me."
+                </p>
+                <p class="message-label">🤍 Promise & Future</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "You make me want to be a better person. Not because I'm not good enough, 
+                    but because you inspire me to be the best version of myself for you and for us."
+                </p>
+                <p class="message-label">💖 Love & Growth</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "My heart knew you before my mind caught up. It's like you were always meant to be mine, 
+                    and I was always meant to be yours. We were written in the stars."
+                </p>
+                <p class="message-label">✨ Soulmate</p>
+            </div>
+            <div class="message-card">
+                <p class="message-text">
+                    "Thank you for being you. For your kindness, your laughter, your beautiful soul. 
+                    You've changed my life in ways I never thought possible. I love you endlessly."
+                </p>
+                <p class="message-label">🙏 Gratitude</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Her Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Her - My Favorite Person</h2>
+        <div class="favorites-grid">
+            <div class="favorite-item">
+                <div class="favorite-icon">🍛</div>
+                <h3>Favorite Food</h3>
+                <p>Biryani</p>
+                <p class="favorite-note">The way you enjoy biryani makes me fall for you all over again</p>
+            </div>
+            <div class="favorite-item">
+                <div class="favorite-icon">🤍💜</div>
+                <h3>Favorite Colors</h3>
+                <p>White & Lavender</p>
+                <p class="favorite-note">Just like these colors, you bring peace and elegance to my life</p>
+            </div>
+            <div class="favorite-item">
+                <div class="favorite-icon">🌷</div>
+                <h3>Favorite Flower</h3>
+                <p>Tulip</p>
+                <p class="favorite-note">As graceful and beautiful as you are</p>
+            </div>
+            <div class="favorite-item">
+                <div class="favorite-icon">🦢</div>
+                <h3>Favorite Bird</h3>
+                <p>Swan</p>
+                <p class="favorite-note">Elegant, graceful, and absolutely stunning - just like you</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Moments Highlight -->
+    <section id="special" class="special-moments">
+        <h2 class="section-title">Moments That Changed Everything</h2>
+        <div class="moments-container">
+            <div class="moment-card">
+                <h3>🍝 The Pasta Picnic</h3>
+                <p>
+                    There are moments in life that define everything that comes after. The pasta picnic is one of those moments for me.
+                </p>
+                <p>
+                    You had prepared red sauce pasta with such care and love. But what made it truly magical wasn't the food itself - 
+                    it was the way you fed me with your own hands. In that simple gesture, I saw the depth of your love, 
+                    the tenderness of your heart, and the beauty of your soul.
+                </p>
+                <p>
+                    That moment showed me that love isn't always about grand gestures. Sometimes, it's about the quiet intimacy, 
+                    the gentle care, the way you make someone feel cherished. You made me feel like the most important person in the world. 
+                    I'll carry that memory in my heart forever. 💗
+                </p>
+            </div>
+            <div class="moment-card">
+                <h3>💗 The Cuddling Moment</h3>
+                <p>
+                    In your arms, I found something I didn't know I was searching for - peace.
+                </p>
+                <p>
+                    That emotional cuddling moment at Lal Bagh was transcendent. Time stopped. The world faded away. 
+                    It was just you and me, two souls connecting on the deepest level. Your warmth, your presence, 
+                    the way you held me - it felt like coming home after a long journey.
+                </p>
+                <p>
+                    I've never felt more at peace, more loved, more complete. That moment taught me what true intimacy means. 
+                    It's not just about physical closeness - it's about emotional vulnerability, spiritual connection, 
+                    and the profound comfort of being truly known and accepted by another soul.
+                </p>
+                <p>
+                    Thank you for those moments. Thank you for being my safe harbor. 💜
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birthday Wish Section -->
+    <section id="birthday" class="birthday-wish">
+        <h2 class="section-title">My Birthday Wish For You</h2>
+        <div class="wish-content">
+            <p>
+                My dearest love,
+            </p>
+            <p>
+                Today is your birthday, and I want to take a moment to tell you what you mean to me.
+            </p>
+            <p>
+                <strong>Gratitude:</strong> I am grateful for every single day I get to spend with you. 
+                You've brought so much joy, so much light into my life. Before you, I didn't know what true happiness felt like. 
+                You've changed me in the most beautiful ways.
+            </p>
+            <p>
+                <strong>Love:</strong> My love for you grows deeper with each passing day. It's not just a feeling - 
+                it's a choice I make every morning when I wake up and think of you. It's the way my heart races when I see your name. 
+                It's the way I miss you even when you're right beside me. You are my greatest love, my deepest connection, my soulmate.
+            </p>
+            <p>
+                <strong>Appreciation:</strong> I appreciate your kindness, your strength, your vulnerability. 
+                I appreciate the way you make me laugh until my sides hurt. I appreciate the way you listen to me, 
+                really listen, and make me feel heard. I appreciate your dreams, your ambitions, your beautiful spirit.
+            </p>
+            <p>
+                <strong>Future Dreams:</strong> I dream of a lifetime with you. I dream of building a home filled with love and laughter. 
+                I dream of growing old with you, of facing life's challenges together, of celebrating countless more birthdays. 
+                I dream of a future where you know, without a doubt, that you are loved beyond measure.
+            </p>
+            <p>
+                On this special day, I want you to know that you are extraordinary. You are worthy of all the love, 
+                all the happiness, all the beauty this world has to offer. I am honored to be the one by your side.
+            </p>
+            <p>
+                Happy Birthday, my love. Today, and every day, I celebrate you. 💖
+            </p>
+            <p class="signature">
+                Forever yours,<br>
+                Your Love ❤️
+            </p>
+        </div>
+    </section>
+
+    <!-- Final Surprise Section -->
+    <section id="surprise" class="surprise">
+        <h2 class="section-title">One More Thing...</h2>
+        <div class="surprise-container">
+            <button id="surpriseBtn" class="surprise-btn">💝 Click Me for a Surprise 💝</button>
+            <div id="surpriseContent" class="surprise-content hidden">
+                <div class="surprise-message">
+                    <h3>My Final Secret Message</h3>
+                    <p>
+                        I love you. Not because you're perfect, but because loving you feels like the most natural thing in the world. 
+                        You are my favorite person, my greatest adventure, my sweetest dream come true.
+                    </p>
+                    <p>
+                        Thank you for saying yes to us. Thank you for choosing me. Thank you for being the incredible woman that you are.
+                    </p>
+                    <p>
+                        I can't wait to spend forever with you. 💖
+                    </p>
+                    <div class="confetti-animation">
+                        <span class="confetti">❤️</span>
+                        <span class="confetti">💜</span>
+                        <span class="confetti">🤍</span>
+                        <span class="confetti">💖</span>
+                        <span class="confetti">💝</span>
+                        <span class="confetti">✨</span>
+                        <span class="confetti">🌹</span>
+                        <span class="confetti">🌷</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with 💖 for the love of my life</p>
+        <p>Happy Birthday, June 11th ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
