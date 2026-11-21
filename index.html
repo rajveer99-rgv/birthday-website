@@ -1,462 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffe4ec">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love ❤️</title>
 
-    <title>Happy Birthday, My Love ❤️</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #e6ccff);
+    color: #333;
+    scroll-behavior: smooth;
+}
 
-    <link rel="stylesheet" href="style.css">
+header {
+    text-align: center;
+    padding: 80px 20px;
+    background: rgba(255,255,255,0.6);
+}
+
+header h1 {
+    font-size: 3em;
+    color: #b366ff;
+}
+
+section {
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.timeline {
+    border-left: 3px solid #b366ff;
+    padding-left: 20px;
+}
+
+.timeline div {
+    margin-bottom: 30px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #b366ff;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+</style>
+
 </head>
-
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-
-            <div class="logo">💖 Our Love Story</div>
-
-            <ul class="nav-menu">
-                <li><a href="#welcome" class="nav-link">Home</a></li>
-                <li><a href="#timeline" class="nav-link">Memories</a></li>
-                <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li><a href="#messages" class="nav-link">Messages</a></li>
-                <li><a href="#about" class="nav-link">About Her</a></li>
-                <li><a href="#birthday" class="nav-link">Birthday Wish</a></li>
-            </ul>
-
-            <div class="music-toggle">
-                <button id="musicBtn" class="music-btn" type="button">
-                    🎵 Play Music
-                </button>
-            </div>
-
-        </div>
-    </nav>
-
-
-    <!-- Background Music -->
-    <audio id="bgMusic" loop preload="none">
-        <source src="music/laila.mpeg" type="audio/mpeg">
-        Your browser does not support audio.
-    </audio>
-
-
-    <!-- Welcome Section -->
-    <section id="welcome" class="welcome">
-
-        <div class="welcome-content">
-
-            <div class="floating-hearts">
-                <span class="heart">❤️</span>
-                <span class="heart">💜</span>
-                <span class="heart">🤍</span>
-                <span class="heart">💖</span>
-                <span class="heart">💝</span>
-            </div>
-
-            <h1 class="welcome-title">
-                Happy Birthday, My Love ❤️
-            </h1>
-
-            <p class="welcome-subtitle">
-                June 11th - A day as beautiful as you
-            </p>
-
-            <p class="welcome-text">
-                On this special day, I want to celebrate not just your
-                birthday, but the incredible journey we've shared together.
-                Every moment with you has been a blessing, and I'm grateful
-                for every memory we've created.
-            </p>
-
-            <div class="scroll-indicator">
-                <span>Scroll to explore our story ↓</span>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Timeline Section -->
-    <section id="timeline" class="timeline">
-
-        <h2 class="section-title">Our Beautiful Journey</h2>
-
-        <div class="timeline-container">
-
-            <!-- Memory 1 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-
-                    <h3>Our First Meeting</h3>
-
-                    <p class="date">February 14 - BTM Park</p>
-
-                    <p class="description">
-                        The day everything changed. I still remember the
-                        butterflies in my stomach when I first saw you.
-                        It was Valentine's Day, and fate brought us together
-                        in the most magical way. You were even more beautiful
-                        than I imagined, and your smile made my heart skip a beat.
-                    </p>
-
-                </div>
-            </div>
-
-
-            <!-- Memory 2 -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-
-                    <h3>Cubbon Park Adventure</h3>
-
-                    <p class="date">February 20 - Cubbon Park</p>
-
-                    <p class="description">
-                        Our second meeting was like a dream. Walking through
-                        the park with you, I felt like the luckiest person alive.
-                        The way you laughed, the way you looked at me -
-                        everything felt so right, so perfect.
-                        I knew then that you were someone truly special.
-                    </p>
-
-                </div>
-            </div>
-
-
-            <!-- Memory 3 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-
-                    <h3>Growing Closer</h3>
-
-                    <p class="date">March 4 - Cubbon Park</p>
-
-                    <p class="description">
-                        Every time we met, I fell for you a little more.
-                        This day at Cubbon Park was no exception.
-                        We talked for hours, and I realized how deeply
-                        I was falling for you. Your kindness, your warmth,
-                        your beautiful soul - everything about you captivates me.
-                    </p>
-
-                </div>
-            </div>
-
-
-            <!-- Memory 4 -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-
-                    <h3>HSR & Kanakadasa Moments</h3>
-
-                    <p class="date">March 7 - HSR & Kanakadasa</p>
-
-                    <p class="description">
-                        Exploring new places with you felt like an adventure.
-                        Every corner we turned, every moment we shared,
-                        brought us closer. I loved seeing the world through
-                        your eyes, experiencing life with you by my side.
-                    </p>
-
-                </div>
-            </div>
-
-
-            <!-- Memory 5 -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-
-                    <h3>Lal Bagh Dreams</h3>
-
-                    <p class="date">March 20 - Lal Bagh Park</p>
-
-                    <p class="description">
-                        The beauty of Lal Bagh couldn't compare to the beauty
-                        of being with you. Among the flowers and greenery,
-                        I felt like I was in paradise - not because of the place,
-                        but because you were there with me.
-                    </p>
-
-                </div>
-            </div>
-
-
-            <!-- Memory 6 -->
-            <div class="timeline-item right special">
-                <div class="timeline-content">
-
-                    <h3>🍝 The Pasta Picnic - A Moment of Pure Love</h3>
-
-                    <p class="date">April 14 - Lal Bagh Park</p>
-
-                    <p class="description">
-                        This day will forever be etched in my heart.
-                        You cooked the most delicious red sauce pasta with so
-                        much love, and then you fed me with your own hands.
-                        It wasn't just about the food - it was about the
-                        tenderness, the care, the intimacy of that moment.
-
-                        I felt so loved, so cherished. That simple act of
-                        feeding me showed me how deeply you care.
-                        I'll never forget the sweetness of that moment,
-                        the way you looked at me with such affection.
-                        You made me feel like the most special person
-                        in the world. 💗
-                    </p>
-
-                </div>
-            </div>
-
-
-            <!-- Memory 7 -->
-            <div class="timeline-item left special">
-                <div class="timeline-content">
-
-                    <h3>💗 The Cuddling Moment - Pure Bliss</h3>
-
-                    <p class="date">April 20 - Lal Bagh Park</p>
-
-                    <p class="description">
-                        In your arms, I found peace. That emotional cuddling
-                        moment was so peaceful, so pure, so unforgettable.
-
-                        Time seemed to stop. The world faded away, and all
-                        that mattered was you and me. Your warmth, your presence,
-                        the way you held me - it felt like home.
-
-                        I've never felt more at peace, more loved, more complete.
-                        That moment taught me what true intimacy means -
-                        it's not just physical, it's emotional, spiritual,
-                        it's two souls connecting on the deepest level.
-
-                        I love you more than words could ever express. 💜
-                    </p>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Photo Gallery -->
-    <section id="gallery" class="gallery">
-
-        <h2 class="section-title">Our Precious Moments</h2>
-
-        <p class="gallery-subtitle">
-            Each photo holds a thousand words of love
-        </p>
-
-        <div class="gallery-grid">
-
-            <div class="gallery-item">
-                <img
-                    src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/smile1.jpeg"
-                    alt="Our First Meeting"
-                    loading="lazy">
-                <p class="gallery-caption">Our First Meeting</p>
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/Snapchat-1618791039.jpg"
-                    alt="Cubbon Park Adventures"
-                    loading="lazy">
-                <p class="gallery-caption">Cubbon Park Adventures</p>
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/Snapchat-1780260680.jpg"
-                    alt="Sunset Moments"
-                    loading="lazy">
-                <p class="gallery-caption">Sunset Moments</p>
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/bubu1.jpeg"
-                    alt="Lal Bagh Memories"
-                    loading="lazy">
-                <p class="gallery-caption">Lal Bagh Memories</p>
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/funny.jpeg"
-                    alt="Your Beautiful Smile"
-                    loading="lazy">
-                <p class="gallery-caption">Your Beautiful Smile</p>
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/kiss.jpeg"
-                    alt="Us Together"
-                    loading="lazy">
-                <p class="gallery-caption">Us Together</p>
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/uss3.jpeg"
-                    alt="Precious Moments"
-                    loading="lazy">
-                <p class="gallery-caption">Precious Moments</p>
-            </div>
-
-            <div class="gallery-item">
-                <img
-                    src="https://raw.githubusercontent.com/rajveer99-rgv/birthday-website/master/images/her.jpeg"
-                    alt="Cute Moments"
-                    loading="lazy">
-                <p class="gallery-caption">Cute Moments</p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Messages Section -->
-    <section id="messages" class="messages">
-
-        <h2 class="section-title">A Few Words From My Heart 💌</h2>
-
-        <div class="message-container">
-
-            <div class="message-card">
-                <h3>My Happiness ❤️</h3>
-                <p>
-                    You bring happiness into my life in ways you probably
-                    don't even realize. Your smile can make my worst days better.
-                </p>
-            </div>
-
-            <div class="message-card">
-                <h3>My Favourite Person 💗</h3>
-                <p>
-                    No matter where life takes us, you will always be
-                    someone incredibly special to me.
-                </p>
-            </div>
-
-            <div class="message-card">
-                <h3>My Forever Memory 💜</h3>
-                <p>
-                    Every little moment with you becomes a beautiful memory
-                    that I wish I could relive again and again.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- About Her Section -->
-    <section id="about" class="about">
-
-        <h2 class="section-title">A Little About Her 🌷</h2>
-
-        <div class="about-content">
-
-            <p>
-                She is the girl whose smile makes everything brighter.
-                Her kindness, her laughter, her little habits and the way
-                she makes ordinary moments feel special are some of the
-                reasons she means so much to me.
-            </p>
-
-            <p>
-                She is beautiful in ways that go far beyond appearance.
-                And if I could choose one person to make countless memories
-                with, I would choose her every single time.
-            </p>
-
-            <h3>You're my favourite person. Always. ❤️</h3>
-
-        </div>
-    </section>
-
-
-    <!-- Birthday Wish Section -->
-    <section id="birthday" class="birthday">
-
-        <div class="birthday-content">
-
-            <div class="birthday-hearts">🎂 💖 🎉</div>
-
-            <h2 class="section-title">
-                Happy Birthday, My Love!
-            </h2>
-
-            <p class="birthday-message">
-                On your special day, I wish you endless happiness,
-                beautiful opportunities, good health and all the love
-                your heart can hold.
-
-                May every dream of yours come true.
-                Keep smiling, keep shining and never forget how special
-                you are.
-
-                Thank you for being a beautiful part of my life.
-                I am so lucky to have you.
-
-                Happy Birthday once again, my favourite person! ❤️
-            </p>
-
-            <h3 class="birthday-signature">
-                With all my love, Forever Yours ❤️
-            </h3>
-
-        </div>
-    </section>
-
-
-    <!-- Footer -->
-    <footer class="footer">
-
-        <p>Made with ❤️ and countless beautiful memories.</p>
-
-        <p>Our Love Story | Forever & Always 💖</p>
-
-    </footer>
-
-
-    <!-- Music Button Functionality -->
-    <script>
-        const musicBtn = document.getElementById("musicBtn");
-        const bgMusic = document.getElementById("bgMusic");
-
-        musicBtn.addEventListener("click", async function () {
-
-            if (bgMusic.paused) {
-
-                try {
-                    await bgMusic.play();
-                    musicBtn.textContent = "⏸ Pause Music";
-                } catch (error) {
-                    console.error("Music could not be played:", error);
-                    musicBtn.textContent = "🎵 Try Again";
-                }
-
-            } else {
-
-                bgMusic.pause();
-                musicBtn.textContent = "🎵 Play Music";
-
-            }
-
-        });
-
-        bgMusic.addEventListener("ended", function () {
-            musicBtn.textContent = "🎵 Play Music";
-        });
-    </script>
+<header>
+    <h1>Happy Birthday My Love ❤️</h1>
+    <p>You are the most beautiful part of my life 💗</p>
+</header>
+
+<section>
+    <h2>Our Beautiful Journey 💕</h2>
+    <div class="timeline">
+        <div><b>1st Meet – Feb 14 (BTM Park)</b><br>Our journey started with the most special day ❤️</div>
+        <div><b>2nd Meet – Feb 20 (Cubbon Park)</b><br>Every moment with you felt magical 💫</div>
+        <div><b>3rd Meet – March 4 (Cubbon Park)</b></div>
+        <div><b>4th Meet – March 7 (HSR & Kanakadasa)</b></div>
+        <div><b>5th Meet – March 20 (Lal Bagh)</b><br>
+        Our picnic day 🥺❤️ You cooked red sauce pasta and fed me with your cute hands… it was the best thing ever 🤭</div>
+        <div><b>6th Meet – April 14 (Lal Bagh)</b><br>
+        We cuddled so much… being in your arms felt like home 💗</div>
+        <div><b>7th Meet – April 20 (Lal Bagh)</b></div>
+    </div>
+</section>
+
+<section>
+    <h2>Our Memories 📸</h2>
+    <div class="gallery">
+        <!-- Replace with your images -->
+        <img src="img1.jpg">
+        <img src="img2.jpg">
+        <img src="img3.jpg">
+        <img src="img4.jpg">
+    </div>
+</section>
+
+<section>
+    <h2>About You 💖</h2>
+    <div class="card">🍛 Favorite Food: Biryani</div>
+    <div class="card">🤍 Favorite Color: White & Lavender</div>
+    <div class="card">🌷 Favorite Flower: Tulip</div>
+    <div class="card">🦢 Favorite Bird: Swan</div>
+</section>
+
+<section>
+    <h2>Love Messages 💌</h2>
+    <div class="card">You are not just my girlfriend, you are my peace, my happiness, and my everything ❤️</div>
+    <div class="card">Every moment with you becomes a memory I never want to forget 💫</div>
+    <div class="card">I promise to always stand beside you, love you, and make you smile 🫶🏻</div>
+    <div class="card">You make my world brighter just by being in it 💗</div>
+</section>
+
+<section>
+    <h2>Special Birthday Wish 🎂</h2>
+    <p>
+        Happy Birthday my love ❤️  
+        I don’t have perfect words, but I have real feelings.  
+        You are the best thing that has ever happened to me.  
+        Thank you for being in my life, for loving me, and for making every day special.  
+        I wish to spend many more birthdays with you, holding your hand forever 💗  
+    </p>
+</section>
+
+<section style="text-align:center;">
+    <button onclick="showSurprise()">Click for Surprise 🎁</button>
+    <p id="surprise" class="hidden">I Love You Forever ❤️🫶🏻</p>
+</section>
+
+<footer>
+    Made with ❤️ just for you
+</footer>
+
+<script>
+function showSurprise() {
+    document.getElementById("surprise").classList.remove("hidden");
+}
+</script>
 
 </body>
 </html>
